@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main(void)
+{
+    
+    float a=0, b=0, c=0;
+    
+    puts("this program attempts to solve for x in a quadratic equation in the form\n\n\tax**2 + bx + c = 0\n\nYou will have to enter the values of a, b and c, as    asked\n\nPlease, input the value of a:");
+    scanf("%f", &a);
+    
+    puts("Please, now input the value of b: ");
+    scanf("%f", &b);
+    
+    puts("Lastly, please input the value of c: ");
+    scanf("%f", &c);
+    
+    float delta = b * b - (4 * a * c);
+    if(delta < 0 || a == 0)
+        printf("your equation for a = %f, b = %f and c = %f has no real solutions or is not quadratic", a, b, c);
+    else
+    {
+        float solution_a, solution_b;
+        if (delta == 0)
+        {
+            solution_a = -b / (2 * a);
+            printf("Your equation for a = %f, b = %f and c = %f has just one real solution: %f", a, b, c, solution_a);
+        }
+        else
+        {
+            solution_a = (-b + sqrt(delta)) / (2 * a);
+            solution_b = (-b - sqrt(delta)) / (2 * a);
+            printf("Your equation for a = %f, b = %f and c = %f has two real solutions: %f and %f", a, b, c, solution_a, solution_b);
+        
+        }
+            
+    }
+    
+    system("pause");
+    
+    return 0;
+}
